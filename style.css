@@ -1,0 +1,103 @@
+body { margin:0; padding:0; overflow: hidden;}
+
+path {
+  -webkit-transition:fill 400ms;
+          transition:fill 400ms;
+}
+
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
+/* Box */
+
+.box {
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  font-family: sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Locationpicker */
+
+.locationpicker{
+  top: 10px; right: 10px;
+}
+
+.locationpicker #all{
+  font-weight: bold;
+}
+
+/* Menu */
+
+.menu a {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #555;
+  display: block;
+  margin: 0;
+  padding: 4px 6px;
+  text-decoration: none;
+  text-align: left;
+  border-bottom: 1.2px solid rgba(0,0,0,0.15);
+}
+
+.menu a:first-child {
+  border-radius: 3px 3px 0 0;
+}
+
+.menu a:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.menu a:hover {
+  background: #F1F1F1;
+}
+
+.menu a.active {
+  background: #ededed;
+}
+
+.menu a.active:hover {
+  background: #e8e8e8;
+}
+
+/* Dashboard */
+
+#dashboard.active{
+  bottom: 0px;
+}
+
+#dashboard {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  bottom: -200px;
+  z-index: 1000;
+  box-shadow: 0 0 3px 0 #000000b5;
+  transition: bottom 0.3s ease-in-out;
+}
+
+.dashboardcontent{
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #555;  
+  text-align: left;
+  margin: 10px;
+}
+
+.dashboardcontent .name{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.dashboardcontent .location{
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.dashboardcontent .infotable{
+  margin: 10px;
+}
