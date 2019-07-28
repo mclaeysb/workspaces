@@ -63,7 +63,8 @@ function makeMap(data){
                 'data': data
             },
             'layout': {
-                "icon-image": "marker-15"
+                "icon-image": "marker-15",
+                "icon-allow-overlap": true
             },
             'paint': {}
         });
@@ -82,7 +83,7 @@ function makeMap(data){
         });
 
         // Set filters
-        map.setFilter('workspaces', ["==", ["get", "open"], "yes"]);
+        map.setFilter('workspaces', ["==", ["get", "show"], "yes"]);
 
         // Add interactivity
         var locations = [
@@ -167,15 +168,15 @@ function makeMap(data){
           var content = document.createElement('div');
           content.className = 'dashboardcontent';
           content.innerHTML = Mustache.render(
-            "<div class='name'>{{name}} {{total_score}}</div><br>" +
-            "<div class='location'>{{type}} near {{location}}</div>" +
+            "<div class='name'>{{name}} {{totalscore}}</div><br>" +
+            "<div class='location'>A {{type}} near {{location}}. {{#protip}} - Protip here: {{protip}}{{/protip}}</div>" +
             //"<tr><td>Open {{opening_hours}}</td></tr>" +
             "<table class='infotable heading' style='float: left;'><tbody>" +
-            "<tr><th>Accessibility</th><td>{{accessibility_score}}</td><td>{{accessibility}}</td></tr>" +
-            "<tr><th>Vibe</th><td>{{vibe_score}}</td><td>{{vibe}}</td></tr>" +
-            "<tr><th>Food</th><td>{{food_score}}</td><td>{{food}}</td></tr>" +
-            "<tr><th>Furniture</th><td>{{furniture_score}}</td><td>{{furniture}}</td></tr>" +
-            "<tr><th>Technical</th><td>{{technical_score}}</td><td>{{technical}}</td></tr>" +
+            "<tr><th class='tooltip'>Accessibility<span class='tooltiptext'>Is the entrance or usage free? Can you bring belongings inside?</span></th><td class='table_score'>{{accessibility_score}}</td><td class='table_explanation'>{{accessibility}}</td></tr>" +
+            "<tr><th class='tooltip'>Vibe<span class='tooltiptext'>How calm is it? Can you work without being distrubed? Would you trust leaving your desk and belongings to go for a short walk?</span></th><td class='table_score'>{{vibe_score}}</td><td class='table_explanation'>{{vibe}}</td></tr>" +
+            "<tr><th class='tooltip'>Food<span class='tooltiptext'>Are there some kind of food, drinks or snacks available?</span></th><td class='table_score'>{{food_score}}</td><td class='table_explanation'>{{food}}</td></tr>" +
+            "<tr><th class='tooltip'>Furniture<span class='tooltiptext'>Are the tables and chairs comfortable? Abundant? Is there enough (natural) light?</span></th><td class='table_score'>{{furniture_score}}</td><td class='table_explanation'>{{furniture}}</td></tr>" +
+            "<tr><th class='tooltip'>Technical<span class='tooltiptext'>Are there ample plugs? Is there a free, fast and stable wifi?</span></th><td class='table_score'>{{technical_score}}</td><td class='table_explanation'>{{technical}}</td></tr>" +
             "<tbody></table>", properties);
 //accessibility
 //accessibility_score
