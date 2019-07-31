@@ -1,6 +1,12 @@
-# A Mapbox GL template
+# Manuel Rates Workspaces
 
-## Getting started
+## What this is
+
+Occasionnally I work from home or in a café in town. It's not frequent enough to join a co-working space, but it is frequent enough to need a list of good workspaces readily available. Good places to work from can be rare rare, and finding one can feel like finding a gem in the rough. Over the years, I seem to have developed a particular taste, with some specific criteria that can make or break a workspace for me.
+
+I made this little website just for fun. Credits to ['Tom Rates Hills'](https://macwright.org/hills/) for inspiring this side project.
+
+## How to run it locally
 
 To edit this webmap, open the `index.html`, `map.js` and `style.css` files in a text editor.
 
