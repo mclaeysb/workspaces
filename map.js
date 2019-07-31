@@ -43,8 +43,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWNsYWV5c2IiLCJhIjoiY2loZ3dtanZlMDRyaHRyajdhO
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mclaeysb/cjy1ii6xn0v3s1ct434all020',
-    center: [-0.1029, 51.5192], // starting position [lng, lat]
-    zoom: 12 // starting zoom
+    center: [2.972, 51.094], // starting position [lng, lat]
+    zoom: 6 // starting zoom
 });
 
 // Disable map rotation using right click + drag
