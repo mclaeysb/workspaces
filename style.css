@@ -58,6 +58,16 @@ path {
   font-weight: bold;
 }
 
+/* scorepicker */
+
+.scorepicker{
+  top: 120px; right: 10px;
+}
+
+.scorepicker #all{
+  font-weight: bold;
+}
+
 /* Menu */
 
 .menu a {
@@ -69,6 +79,7 @@ path {
   padding: 4px 6px;
   text-decoration: none;
   text-align: left;
+  width: 80px;
   border-bottom: 1.2px solid rgba(0,0,0,0.15);
 }
 

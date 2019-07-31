@@ -33,6 +33,9 @@ function correctNull(object) {
   return object
 }
 
+// Set default filter
+var defaultFilter = ["==", ["get", "show"], "yes"];
+
 // Specifying access tokens
 mapboxgl.accessToken = "pk.eyJ1IjoibWNsYWV5c2IiLCJhIjoiY2loZ3dtanZlMDRyaHRyajdhOGZwZ3VqZSJ9.-VlodpvODHjL3GEVNyxDgQ";
 
@@ -82,12 +85,12 @@ function makeMap(data){
         });
 
         // Set filters
-        map.setFilter('workspaces', ["==", ["get", "show"], "yes"]);
+        map.setFilter('workspaces', defaultFilter);
 
         // Add interactivity
         var locations = [
           {id: 'all', className: 'active', innerHTML: 'All', center: [2.972, 51.094], zoom: 6},
-          {id: 'brussels', className: '', innerHTML: 'Brussels', center: [4.3517, 50.8468], zoom: 12},
+          {id: 'brussels', className: '', innerHTML: 'Brussels', center: [4.4127, 50.84247], zoom: 12},
           {id: 'ghent', className: '', innerHTML: 'Ghent', center: [3.7284, 51.0482], zoom: 13},
           {id: 'london', className: '', innerHTML: 'London', center: [-0.1029, 51.5192], zoom: 12}
         ]
@@ -110,7 +113,7 @@ function makeMap(data){
               }
 
               if(wasActive) {
-                document.getElementById("all").className = 'active';
+                //document.getElementById("all").className = 'active';
               } else {
                 map.flyTo({
                     center: properties.center,
@@ -120,6 +123,42 @@ function makeMap(data){
               }
             }
           locationpicker.appendChild(link);
+        });
+
+        var scores = [
+          {id: 'all', className: 'active', innerHTML: 'All', number: 0},
+          {id: '1', className: '', innerHTML: '★', number: 1},
+          {id: '2', className: '', innerHTML: '★★', number: 2},
+          {id: '3', className: '', innerHTML: '★★★', number: 3},
+          {id: '4', className: '', innerHTML: '★★★★', number: 4}
+        ]
+        // Make scores
+        scores.forEach(function(properties) {
+          var link = document.createElement('a');
+              link.href = '#';
+              link.id = properties.id;
+              link.className = properties.className;
+              link.innerHTML = properties.innerHTML;
+              link.number = properties.number;
+
+          link.onclick = function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              var wasActive = this.className == 'active'
+
+              for (var i = 0; i < scorepicker.children.length; i++) {
+                scorepicker.children[i].className = '';
+              }
+
+              if(wasActive) {
+                //document.getElementById("all").className = 'active';
+              } else {
+                map.setFilter('workspaces', ["all", [">=", ["length", ["get", "totalscore"]], this.number], defaultFilter]);
+                this.className = 'active';
+              }
+            }
+          scorepicker.appendChild(link);
         });
 
         map.on('mouseenter', 'workspaces', function (e) {
