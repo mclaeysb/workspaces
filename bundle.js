@@ -208,7 +208,7 @@ function makeMap(data){
           content.className = 'dashboardcontent';
           content.innerHTML = Mustache.render(
             "<div class='name'>{{name}} {{totalscore}}</div><br>" +
-            "<div class='location'>A {{type}} near {{location}}. {{#protip}} - Protip here: {{protip}}{{/protip}}</div>" +
+            "<div class='type'>A {{type}} near {{location}}. {{#url}}<a href='{{url}}' class='url'>Website ➪</a>{{/url}}</div>" +
             //"<tr><td>Open {{opening_hours}}</td></tr>" +
             "<table class='infotable heading' style='float: left;'><tbody>" +
             "<tr><th class='tooltip'>Accessibility<span class='tooltiptext'>Is the entrance or usage free? Can you bring belongings inside?</span></th><td class='table_score'>{{accessibility_score}}</td><td class='table_explanation'>{{accessibility}}</td></tr>" +
@@ -216,7 +216,9 @@ function makeMap(data){
             "<tr><th class='tooltip'>Food<span class='tooltiptext'>Are there some kind of food, drinks or snacks available?</span></th><td class='table_score'>{{food_score}}</td><td class='table_explanation'>{{food}}</td></tr>" +
             "<tr><th class='tooltip'>Furniture<span class='tooltiptext'>Are the tables and chairs comfortable? Abundant? Is there enough (natural) light?</span></th><td class='table_score'>{{furniture_score}}</td><td class='table_explanation'>{{furniture}}</td></tr>" +
             "<tr><th class='tooltip'>Technical<span class='tooltiptext'>Are there ample plugs? Is there a free, fast and stable wifi?</span></th><td class='table_score'>{{technical_score}}</td><td class='table_explanation'>{{technical}}</td></tr>" +
-            "<tbody></table>", properties);
+            "<tbody></table>" +
+            "<div class='more'>{{#protip}}Protip here: {{protip}}<br>{{/protip}} {{#opening_hours}}Opening hours: {{opening_hours}}{{/opening_hours}}</div>"
+            , properties);
 //accessibility
 //accessibility_score
 //vibe
