@@ -10,6 +10,6 @@ I made this little website just for fun. Credits to ['Tom Rates Hills'](https://
 
 To edit this webmap, open the `index.html`, `map.js` and `style.css` files in a text editor.
 
-The JavaScript uses `require()`. Use `watchify map.js -o bundle.js` to automatically `browserify` all the code when you save.
+The JavaScript in `map.js` uses `require()` load npm modules. Run `npm install` to install all modules specified in `package.json`, then `watchify map.js -o bundle.js` to automatically `browserify` all the required code into the one `bundle.js` file that is updated every time alter your JS code, and loaded in `index.html`.
 
-To view this webmap, start a local http server (for example at this directory and on port 8080) and open the `index.html` file in you browser on the corresponding port via `localhost:8080/index.html`
+To view this webmap, start a local http server and open the `index.html` file in you browser (for example using [npm's `http-server`](https://www.npmjs.com/package/http-server) and running `http-server -o`).
