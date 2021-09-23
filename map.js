@@ -2,6 +2,7 @@
 var csv2geojson = require('csv2geojson');
 var $ = require('jquery');
 var Mustache = require('Mustache');
+var queryString = require('query-string');
 
 // Load data
 $(document).ready(function() {
@@ -33,8 +34,15 @@ function correctNull(object) {
   return object
 }
 
-// Set default filter
-var defaultFilter = ["==", ["get", "show"], "yes"];
+// Get URL Query parameters
+const parsed = queryString.parse(location.search);
+
+// Set default filter based on parameters (very unsafe, I know, but the data is exposed anyway)
+if (parsed.private == 'yes') {
+  var defaultFilter = ["==", ["get", "show"], "yes"];
+} else {
+  var defaultFilter = ["all", ["==", ["get", "show"], "yes"], ["==", ["get", "private"], "no"]];
+} 
 
 // Specifying access tokens
 mapboxgl.accessToken = "pk.eyJ1IjoibWNsYWV5c2IiLCJhIjoiY2loZ3dtanZlMDRyaHRyajdhOGZwZ3VqZSJ9.-VlodpvODHjL3GEVNyxDgQ";
@@ -43,8 +51,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWNsYWV5c2IiLCJhIjoiY2loZ3dtanZlMDRyaHRyajdhO
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mclaeysb/cjy1ii6xn0v3s1ct434all020',
-    center: [2.972, 51.094], // starting position [lng, lat]
-    zoom: 6 // starting zoom
+    center: [4.1261, 50.9444], // starting position [lng, lat]
+    zoom: 9 // starting zoom
 });
 
 // Disable map rotation using right click + drag
@@ -90,9 +98,9 @@ function makeMap(data){
         // Add interactivity
         var locations = [
           {id: 'all', className: 'active', innerHTML: 'All', center: [2.972, 51.094], zoom: 6},
-          {id: 'brussels', className: '', innerHTML: 'Brussels', center: [4.4127, 50.84247], zoom: 12},
+          {id: 'brussels', className: '', innerHTML: 'Brussels', center: [4.3577, 50.84247], zoom: 12},
           {id: 'ghent', className: '', innerHTML: 'Ghent', center: [3.7284, 51.0482], zoom: 13},
-          {id: 'london', className: '', innerHTML: 'London', center: [-0.1029, 51.5192], zoom: 12}
+          // {id: 'london', className: '', innerHTML: 'London', center: [-0.1029, 51.5192], zoom: 12}
         ]
         // Make locations
         locations.forEach(function(properties) {
