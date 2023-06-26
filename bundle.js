@@ -52,8 +52,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWNsYWV5c2IiLCJhIjoiY2loZ3dtanZlMDRyaHRyajdhO
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mclaeysb/cjy1ii6xn0v3s1ct434all020',
-    center: [4.1261, 50.9444], // starting position [lng, lat]
-    zoom: 9 // starting zoom
+    center: [4.3577, 50.84247], // starting position [lng, lat], belgium [4.1261, 50.9444], zoom 9
+    zoom: 12 // starting zoom
 });
 
 // Disable map rotation using right click + drag
@@ -207,7 +207,7 @@ function makeMap(data){
           var content = document.createElement('div');
           content.className = 'dashboardcontent';
           content.innerHTML = Mustache.render(
-            "<div class='name'>{{name}} {{totalscore}}</div><br>" +
+            "<div class='name'>{{name}} {{totalscore}}</div>" +
             "<div class='type'>A {{type}} near {{location}}. {{#url}}<a href='{{url}}' class='url'>Website ➪</a>{{/url}}</div>" +
             //"<tr><td>Open {{opening_hours}}</td></tr>" +
             "<table class='infotable heading' style='float: left;'><tbody>" +
