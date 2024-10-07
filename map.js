@@ -1,7 +1,7 @@
 // Require
 var csv2geojson = require('csv2geojson');
 var $ = require('jquery');
-var Mustache = require('Mustache');
+var Mustache = require('mustache');
 var queryString = require('query-string');
 
 // Load data
@@ -74,7 +74,8 @@ function makeMap(data){
             },
             'layout': {
                 "icon-image": "marker-15",
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "icon-anchor": 'bottom'
             },
             'paint': {}
         });
@@ -83,7 +84,7 @@ function makeMap(data){
         var hover = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false,
-            offset: 8,
+            offset: 20,
         });
         // Create a popup, but don't add it to the map yet.
         var popup = new mapboxgl.Popup({
