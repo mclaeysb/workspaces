@@ -135,7 +135,8 @@ function makeMap(data){
           {id: '1', className: '', innerHTML: '★', number: 1},
           {id: '2', className: '', innerHTML: '★★', number: 2},
           {id: '3', className: '', innerHTML: '★★★', number: 3},
-          {id: '4', className: '', innerHTML: '★★★★', number: 4}
+          {id: '4', className: '', innerHTML: '★★★★', number: 4},
+          {id: '5', className: '', innerHTML: '★★★★★', number: 5}
         ]
         // Make scores
         scores.forEach(function(properties) {
