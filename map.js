@@ -101,7 +101,7 @@ function makeMap(data){
           {id: 'all', className: 'active', innerHTML: 'All', center: [2.972, 51.094], zoom: 6},
           {id: 'brussels', className: '', innerHTML: 'Brussels', center: [4.3577, 50.84247], zoom: 12},
           {id: 'ghent', className: '', innerHTML: 'Ghent', center: [3.7284, 51.0482], zoom: 13},
-          {id: 'amsterdam', className: '', innerHTML: 'Amsterdam', center: [4.906871353826577, 52.371165007629386], zoom: 12},
+          // {id: 'amsterdam', className: '', innerHTML: 'Amsterdam', center: [4.906871353826577, 52.371165007629386], zoom: 12},
           // {id: 'london', className: '', innerHTML: 'London', center: [-0.1029, 51.5192], zoom: 12}
         ]
         // Make locations
